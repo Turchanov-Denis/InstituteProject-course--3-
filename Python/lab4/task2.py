@@ -58,3 +58,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     extract_frames(args.input_file, args.start_time, args.end_time, args.step)
+
+#"c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/.venv/Scripts/python.exe" "c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/Python/lab4/task2.py" "C:\Users\turch\Рабочий стол\junk\InstituteProject-course--3-\Python\lab4\test_video.mp4"  "00:01:00" "00:02:30" --step 10
