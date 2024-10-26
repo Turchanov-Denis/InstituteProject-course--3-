@@ -1,24 +1,24 @@
-import os
+from pathlib import Path
 import shutil
 
 
 def scan_and_copy_files(folder_path='.'):
-    small_folder = os.path.join(folder_path, 'small')
-    small_files = [os.path.join(root, file) for root, _, files in os.walk(
-        folder_path) for file in files if os.path.getsize(os.path.join(root, file)) < 2048]
-    """
-      for root, _, files in os.walk(folder_path):
-      for file in files:
-          file_path = os.path.join(root, file)
-          if os.path.getsize(file_path) < 2048:
-              small_files.append(file_path)
-      """
+    folder_path = Path(folder_path)
+    small_folder = folder_path / 'small'
+
+    small_files = [file for file in folder_path.rglob(
+        '*') if file.is_file() and file.stat().st_size < 2048]
+    """small_files = []
+        for file in folder_path.rglob('*'):
+        if file.is_file() and file.stat().st_size < 2048:
+        small_files.append(file)"""
     if small_files:
-        os.makedirs(small_folder, exist_ok=True)
+        small_folder.mkdir(exist_ok=True)
         for file in small_files:
             shutil.copy(file, small_folder)
+
         print(f"Copied {len(small_files)} files to the folder: {small_folder}")
-        print([os.path.basename(name) for name in small_files])
+        print([file.name for file in small_files])
     else:
         print("No files smaller than 2KB found.")
 

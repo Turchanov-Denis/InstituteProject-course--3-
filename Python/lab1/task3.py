@@ -1,28 +1,28 @@
-import os
+from pathlib import Path
 
 def create_missing_files_from_list(folder_path='.'):
-    missing_files_path = "missing_files.txt"
+    missing_files_path = Path("missing_files.txt")
     
-    if not os.path.exists(missing_files_path):
+    if not missing_files_path.exists():
         print(f"The file {missing_files_path} does not exist.")
         return
-    
+
     with open(missing_files_path, 'r') as file:
-        missing_files = [line.strip() for line in file.readlines() if line.strip()]
-    
+        missing_files = [line.strip() for line in file if line.strip()]
+
     if not missing_files:
         print("No missing files listed in the file.")
         return
 
-    os.makedirs(folder_path, exist_ok=True)
-    
+    folder_path = Path(folder_path)
+    folder_path.mkdir(exist_ok=True)
+
     created_files = []
     
     for file_name in missing_files:
-        file_path = os.path.join(folder_path, file_name)
+        file_path = folder_path / file_name
         try:
-            with open(file_path, 'w') as new_file:
-                pass
+            file_path.touch()  # Creates an empty file
             created_files.append(file_name)
         except Exception as e:
             print(f"Failed to create file {file_name}: {e}")

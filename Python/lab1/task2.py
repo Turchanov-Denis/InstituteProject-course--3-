@@ -1,17 +1,20 @@
-import os
+from pathlib import Path
 
-def check_files_in_directory(dirpath=".", *files):
-    if not os.path.exists(dirpath) or not os.path.isdir(dirpath):
+def check_files_in_directory(dirpath='.', *files):
+    dirpath = Path(dirpath)
+
+    if not dirpath.exists() or not dirpath.is_dir():
         print(f"The specified directory {dirpath} does not exist.")
         return
 
     if not files:
         total_files = 0
         total_size = 0
-        for root, dirs, filenames in os.walk(dirpath):
-            total_files += len(filenames)
-            total_size += sum(os.path.getsize(os.path.join(root, name)) for name in filenames)
-        
+        for file in dirpath.rglob('*'):
+            if file.is_file():
+                total_files += 1
+                total_size += file.stat().st_size
+
         print(f"Number of files: {total_files}")
         print(f"Total size: {total_size / 1024:.2f} KB")
         return
@@ -20,8 +23,9 @@ def check_files_in_directory(dirpath=".", *files):
     missing_files = []
 
     for file in files:
-        if os.path.isfile(os.path.join(dirpath, file)):
-            present_files.append(file)
+        file_path = dirpath / file
+        if file_path.is_file():
+            present_files.append(file.name)
         else:
             missing_files.append(file)
 
