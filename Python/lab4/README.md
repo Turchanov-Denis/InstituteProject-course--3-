@@ -1,4 +1,4 @@
-### Lab1
+### Lab4
 task1
 ```
 >poetry run python "c:\Users\Firo\Desktop\junk\InstituteProject-course--3-\Python\lab4\task1.py" "C:\Users\Firo\Desktop\junk\InstituteProject-course--3-\Python\lab4\test_video.mp4" "00:01:00" "00:02:30" "output_clip.mp4"
