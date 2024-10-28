@@ -1,4 +1,5 @@
 ### For Python part
 
 `poetry install`
-`poetry run python yourFile`
+
+`poetry run python file`
