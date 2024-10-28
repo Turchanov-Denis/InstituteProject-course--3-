@@ -1,3 +1,4 @@
+import argparse
 from pathlib import Path
 
 def check_files_in_directory(dirpath='.', *files):
@@ -25,7 +26,7 @@ def check_files_in_directory(dirpath='.', *files):
     for file in files:
         file_path = dirpath / file
         if file_path.is_file():
-            present_files.append(file.name)
+            present_files.append(file)
         else:
             missing_files.append(file)
 
@@ -47,12 +48,12 @@ def check_files_in_directory(dirpath='.', *files):
         print("None.")
 
 def main():
-    dirpath = input("Enter the directory path (default is current directory): ").strip() or "."
-    
-    files_input = input("Enter file names separated by spaces (leave empty for general folder info): ").strip()
-    files = files_input.split() if files_input else []
-    
-    check_files_in_directory(dirpath, *files)
+    parser = argparse.ArgumentParser(description="Check for the presence of files in a specified directory.")
+    parser.add_argument('--dirpath', type=str, default='.', help="Path to the directory (default: current directory).")
+    parser.add_argument('--files', nargs='*', help="List of file names to check in the directory.")
+
+    args = parser.parse_args()
+    check_files_in_directory(args.dirpath, *args.files)
 
 if __name__ == "__main__":
     main()
