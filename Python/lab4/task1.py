@@ -29,4 +29,4 @@ if __name__ == "__main__":
     else:
         extract_video_clip(input_path, args.start_time, args.end_time, args.output_file)
 
-#"c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/.venv/Scripts/python.exe" "c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/Python/lab4/task1.py" "C:\Users\turch\Рабочий стол\junk\InstituteProject-course--3-\Python\lab4\test_video.mp4"  "00:01:00" "00:02:30" output_clip.mp4
+#"c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/.venv/Scripts/python.exe" "c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/Python/lab4/task1.py" "C:\Users\turch\Рабочий стол\junk\InstituteProject-course--3-\Python\lab4\test_video.mp4"  "00:01:00" "00:02:30" "output_clip.mp4"

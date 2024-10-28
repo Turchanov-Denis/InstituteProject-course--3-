@@ -34,14 +34,14 @@ def augment_image(image, transformations):
             sobel_edges = filters.sobel(img_gray)
             sobel_image = img_as_ubyte(sobel_edges)
             augmented_images.append(Image.fromarray(sobel_image))
-    
+
     if 'complex' in transformations:
         angle = random.randint(0, 360)
         scale_factor = random.uniform(0.5, 1.5)
         new_size = (int(image.width * scale_factor), int(image.height * scale_factor))
         transformed_image = image.rotate(angle).resize(new_size)
         augmented_images.append(transformed_image)
-    
+
     return augmented_images
 
 def main(input_folder, transformations):
@@ -50,17 +50,24 @@ def main(input_folder, transformations):
         print("Папка не найдена.")
         return
 
-    output_folder = input_path.parent / (input_path.name + "_modify")
-    output_folder.mkdir(exist_ok=True)
+    original_images = sorted(input_path.glob('*.jpg'))
+    original_images = [f for f in original_images if f.stem.isdigit() and int(f.stem) < 20]
 
-    for image_file in sorted(input_path.glob('*.[jp][pn]*g')):
+    print(f"Найдено оригинальных изображений: {len(original_images)}")
+
+    start_index = 20
+    for image_file in original_images:
+        print(f"Обрабатываем файл: {image_file.name}")
         image = Image.open(image_file)
         augmented_images = augment_image(image, transformations)
 
         for i, aug_image in enumerate(augmented_images):
-            new_name = f"{image_file.stem}_aug_{i+1}{image_file.suffix}"
-            save_path = output_folder / new_name
+            new_name = f"{start_index + i:04d}.jpg"
+            save_path = input_path / new_name
             aug_image.save(save_path)
+            print(f"Сохранено: {new_name}")
+
+        start_index += len(augmented_images)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Image Augmentation Script")
@@ -68,7 +75,5 @@ if __name__ == "__main__":
     parser.add_argument('--transforms', nargs='+', help='List of transformations to apply',
                         choices=['rotate', 'flip', 'scale', 'brightness', 'gaussian_noise', 'sobel_filter', 'complex'], required=True)
     args = parser.parse_args()
-    
-    main(args.input_folder, args.transforms)
 
-#"c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/.venv/Scripts/python.exe" "c:/Users/turch/Рабочий стол/junk/InstituteProject-course--3-/Python/lab3/task1.py" "C:\Users\turch\Рабочий стол\junk\InstituteProject-course--3-\Python\lab3\plates\test" --transforms gaussian_noise"
+    main(args.input_folder, args.transforms)

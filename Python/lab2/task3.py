@@ -1,8 +1,8 @@
 from PIL import Image, ImageDraw, ImageFont
-
+from pathlib import Path
 background_path = "image.png"
 logo_path = "logo.png"
-output_path = "watermarked_image.jpg"
+output_path = Path(background_path).with_name("watermarked_image.jpg")
 
 background = Image.open(background_path)
 watermark = Image.new("RGBA", background.size)

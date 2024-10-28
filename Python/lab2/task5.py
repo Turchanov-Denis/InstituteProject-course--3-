@@ -15,7 +15,7 @@ def display_images(extension):
     for i, file in enumerate(files):
         try:
             img = Image.open(file)
-            img.thumbnail((50, 150))
+            img.thumbnail((50, 150))  
             plt.subplot(len(files), 1, i + 1)
             plt.imshow(img)
             plt.axis('off')
@@ -27,12 +27,8 @@ def display_images(extension):
     plt.show()
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3 or sys.argv[1] != '-ft':
         print("Usage: python script.py -ft <file_extension>")
     else:
-        extension_arg = sys.argv[1]
-        if extension_arg.startswith('-ft'):
-            file_extension = extension_arg[3:]
-            display_images(file_extension)
-        else:
-            print("Invalid argument. Use -ft followed by the file extension (e.g., -ft .jpg).")
+        file_extension = sys.argv[2]
+        display_images(file_extension)
