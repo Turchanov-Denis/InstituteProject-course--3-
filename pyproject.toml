@@ -75,6 +75,8 @@ librosa = "^0.10.2.post1"
 numpy = "2.0.0"
 ipykernel = "^6.29.5"
 moviepy = "^1.0.3"
+chardet = "^5.2.0"
+vk-api = "^11.9.9"
 
 
 [build-system]

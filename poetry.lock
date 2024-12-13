@@ -177,6 +177,17 @@ files = [
 pycparser = "*"
 
 [[package]]
+name = "chardet"
+version = "5.2.0"
+description = "Universal encoding detector for Python 3"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "chardet-5.2.0-py3-none-any.whl", hash = "sha256:e1cf59446890a00105fe7b7912492ea04b6e6f06d4b742b2c788469e34c82970"},
+    {file = "chardet-5.2.0.tar.gz", hash = "sha256:1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"},
+]
+
+[[package]]
 name = "charset-normalizer"
 version = "3.4.0"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
@@ -2627,6 +2638,24 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "vk-api"
+version = "11.9.9"
+description = "Python модуль для создания скриптов для социальной сети Вконтакте (vk.com API wrapper)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "vk_api-11.9.9-py3-none-any.whl", hash = "sha256:c71021506449afe5b9bbb1c4acb0d86b35a007ddc21678478e46fbbeabd1f3ef"},
+    {file = "vk_api-11.9.9.tar.gz", hash = "sha256:c7741e40bc05980c91ed94c84542e1e7e7370e101b5eaa74222958d4130fe3c2"},
+]
+
+[package.dependencies]
+requests = "*"
+
+[package.extras]
+vkaudio = ["beautifulsoup4"]
+vkstreaming = ["websocket-client"]
+
+[[package]]
 name = "wcwidth"
 version = "0.2.13"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -2640,4 +2669,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "6bcbf2e3b39f032de60244c40f0f3b19d0078ade2d527e96b23e20df2754e798"
+content-hash = "a02a359c603dc0e251341397d3e0516f09120f21aff2eb623ff116afba534e7d"
