@@ -81,6 +81,7 @@ sympy = "^1.13.3"
 bs4 = "^0.0.2"
 lxml = "^5.3.0"
 jsonschema = "^4.23.0"
+peewee = "^3.17.8"
 
 
 [build-system]
