@@ -84,6 +84,7 @@ jsonschema = "^4.23.0"
 peewee = "^3.17.8"
 docx = "^0.2.4"
 python-docx = "^1.1.2"
+openpyxl = "^3.1.5"
 
 
 [build-system]
