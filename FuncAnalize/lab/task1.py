@@ -37,6 +37,6 @@ x0 = np.array([1.0, 1.0, 2.0, 3.0]).reshape(-1, 1)
 alpha = 0.96
 
 
-epsilon = 1e-2
+epsilon = 1e-4
 x, n = iterative_method(C, d, x0, alpha, epsilon)
 # print(f"Решение: {x}, Итераций: {n}")
