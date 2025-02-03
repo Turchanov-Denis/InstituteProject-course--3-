@@ -1,4 +1,4 @@
-
+// Turchanov Denis 3PM ADMO
 #include <DHT.h> // библиотека для датчика DHT
 #include <LiquidCrystal_I2C.h> // библиотека для дисплея с подключением I2C
 #include <RTClib.h> // библиотека для работы с DS1307
