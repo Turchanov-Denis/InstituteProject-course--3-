@@ -1,6 +1,7 @@
 package ending_5.model;
 
 public class Task {
+    private int id;
     private String title;
     private String description;
     private String dueDate;
@@ -13,7 +14,9 @@ public class Task {
         this.dueDate = dueDate;
         this.isDone = isDone;
     }
-
+    public int getId() {
+        return id;
+    }
     // Геттеры и сеттеры для всех полей
     public String getTitle() {
         return title;

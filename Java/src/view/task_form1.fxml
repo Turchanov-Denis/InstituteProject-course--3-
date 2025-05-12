@@ -11,6 +11,6 @@
     <TextArea fx:id="descriptionField" promptText="Описание задачи"/>
     <DatePicker fx:id="dueDateField"/>
     <CheckBox fx:id="doneCheckBox" text="Задача выполнена"/>
-    <Button text="Сохранить" onAction="#onSaveTask"/>
-<!--    <Button text="Удалить" onAction="#onDeleteTask" />-->
+    <Button text="Изменить" onAction="#onEditTask"/>
+    <Button text="Удалить" onAction="#onDeleteTask" />
 </VBox>
