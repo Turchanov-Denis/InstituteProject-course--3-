@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ending_5.controller.MainController">
+    <TableView fx:id="taskTable">
+        <columns>
+            <TableColumn fx:id="titleColumn" text="Задача"/>
+            <TableColumn fx:id="descriptionColumn" text="Описание"/>
+            <TableColumn fx:id="dateColumn" text="Дата"/>
+        </columns>
+    </TableView>
+    <Button text="Добавить задачу" onMouseClicked="#onAddTask"/>
+</VBox>

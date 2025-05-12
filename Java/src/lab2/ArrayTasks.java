@@ -3,7 +3,7 @@ package lab2;
 import java.util.*;
 
 public class ArrayTasks {
-    // task 1
+    // task 1 Наибольшая подстрока без повторяющихся символов
     public static String longestUniqueSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int left = 0, maxLen = 0, start = 0;
@@ -18,7 +18,7 @@ public class ArrayTasks {
         return s.substring(start, start + maxLen);
     }
 
-    // task 2
+    // task 2 Наибольшая подстрока без повторяющихся символов
     public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
         int[] result = new int[arr1.length + arr2.length];
         int i = 0, j = 0, k = 0;
@@ -28,7 +28,7 @@ public class ArrayTasks {
         return result;
     }
 
-    // task 3
+    // task 3  Максимальная сумма подмассива
     public static int maxSubarraySum(int[] arr) {
         int maxSum = arr[0], currentSum = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -38,7 +38,7 @@ public class ArrayTasks {
         return maxSum;
     }
 
-    // task 4
+    // task 4 Повернуть массив на 90 градусов по часовой стрелке
     public static int[][] rotate90Clockwise(int[][] matrix) {
         int n = matrix.length;
         int[][] rotated = new int[n][n];
@@ -48,7 +48,7 @@ public class ArrayTasks {
         return rotated;
     }
 
-    // task 5
+    // task 5 Найти пару элементов в массиве, сумма которых равна заданному числу
     public static int[] findPairWithSum(int[] arr, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : arr) {
@@ -58,14 +58,14 @@ public class ArrayTasks {
         return null;
     }
 
-    // task 6
+    // task 6 Сумма всех элементов в двумерном массиве
     public static int sum2DArray(int[][] matrix) {
         int sum = 0;
         for (int[] row : matrix) for (int num : row) sum += num;
         return sum;
     }
 
-    // task 7
+    // task 7 Максимальный элемент в каждой строке двумерного массива
     public static int[] maxInEachRow(int[][] matrix) {
         int[] result = new int[matrix.length];
         for (int i = 0; i < matrix.length; i++)
@@ -73,7 +73,7 @@ public class ArrayTasks {
         return result;
     }
 
-    // task 8
+    // task 8 Повернуть двумерный массив на 90 градусов против часовой стрелки
     public static int[][] rotate90CounterClockwise(int[][] matrix) {
         int n = matrix.length;
         int[][] rotated = new int[n][n];
